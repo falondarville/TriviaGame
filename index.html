@@ -22,8 +22,8 @@
 	<div class="row">
 		<div class="col-md-8">
 			<div class="card">
-			  <div class="card-body">
-				<p>Time Remaining:</p>
+			  <div class="card-body" id="timeCard">
+				<p><b>Time Remaining:</b></p>
 				<div id="timeRemaining">0</div>
 				<p> Seconds</p>
 			  </div>
@@ -31,8 +31,9 @@
 		</div>
 		<div class="col-md-4">
 			<div class="card">
-			  <div class="card-body">
+			  <div class="card-body" id="descCard">
 				<p>Let's get started!</p>
+				<p id="description">The Room was released in 2003. It's budget was 6 million dollars and is made just under 2 thousand dollars at the box office. </p>
 			  </div>
 			</div>
 		</div>
@@ -45,7 +46,9 @@
 	<!-- dynamically populate the questions -->
 
 	<!-- dynamically populate the results upon submitting the form -->
+
 </div>
+<div id="submitButton"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="assets/javascript/app.js"></script>

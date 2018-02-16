@@ -16,6 +16,41 @@ var questions = [{
 		answerIndex: 1
 	},
 	{
+		question: "What is Johnny's famous line in the scene where he buys Lisa flowers?",
+		choices: ["Oh hi doggy", "There won't be another day like this", "How could you do this to me"],
+		answerIndex: 0
+	},
+	{
+		question: "Who jumps into bed with Johnny and Lisa?",
+		choices: ["Mark, Johnny's best friend", "Denny, Johnny's neighbor", "Peter, Johnny's psychologist friend"],
+		answerIndex: 1
+	},
+	{
+		question: "Who is Chris-R?",
+		choices: ["Johnny's lawyer and friend", "A drug dealer who Denny owes money to", "The DJ at Johnny's birthday party"],
+		answerIndex: 1
+	},
+	{
+		question: "What is the name of the memoir written by Greg Sestero that describes the making of The Room?",
+		choices: ["Red, Red Room", "The Making of The Room", "The Disaster Artist"],
+		answerIndex: 2
+	},
+	{
+		question: "Which duo produced and directed the film adaptation of Sestero's making-of memoir?",
+		choices: ["Patton Oswalt and Jon Hamm", "Greg Sestero and Dave Franco", "Seth Rogen and James Franco"],
+		answerIndex: 2
+	},
+	{
+		question: "What does Lisa's mother, Claudette, reveal to Lisa suddenly that she never mentions again?",
+		choices: ["She has breast cancer", "She is in love with Johnny", "She adopted Lisa as an infant"],
+		answerIndex: 0
+	},
+	{
+		question: "What do fans famously bring to limited movie screenings of The Room?",
+		choices: ["Tape recorders", "Spoons", "Roses"],
+		answerIndex: 1
+	},
+	{
 		question: "What is Johnny's favorite sport?",
 		choices: ["Football", "Soccer", "Hockey"],
 		answerIndex: 0
@@ -30,11 +65,15 @@ function iterateThroughQuestionsArray(questions) {
 		displayQuestions(questions[x]);
 		//call append choices function
 		displayChoices(questions[x].choices);
+
 	};
+
 };
 
 //call iteration function and pass through array argument
 iterateThroughQuestionsArray(questions);
+$("#submitButton").append("<input type='submit' value='submit' id='buttonStyle'>");
+
 
 //append question
 //SHOWING UNDEFINED
@@ -48,11 +87,25 @@ function displayChoices(choices) {
 	$(".question-div").append("<input type='radio' name='choice' class='options'>" + choices[y] + "</input> <br />");
 };
 
+$("#submitButton").append("<input type='submit>Submit</input>");
 
-//dynamically populate the questions and radio buttons
-//dynamically populate submit button
+//onclick submit button that calls two functions: calculated results and print results
+$("#submitButton").on("click", function(){
+	//submit form 
+	alert("button works!");
+	//call two function
+	// printResults();
+});
 
-//on submit, dynamically populate win/loss/unanswered questions
+//function to calculate results
+
+//function to print results
+
+// function printResults() {
+// 	$(".question-div").append("<p>Correct Answers : " + correctAnswers "</p> <br /> <p>Incorrect Answers : " + wrongAnswers + "</p> <br /> <p>Number of Questions Left Unanswered : " + incompleteAnswers + "</p>")
+// }
+
+//timer countdown from 120 seconds
 
 
 
