@@ -25,34 +25,39 @@ var questions = [{
 function iterateThroughQuestionsArray(questions) {
 
 	for(var x = 0; x < questions.length; x++){
+
 		//call append questions function
-		displayQuestions();
+		displayQuestions(questions[x]);
 		//call append choices function
-		displayChoices();
+		displayChoices(questions[x].choices);
 	};
 };
 
+//call iteration function and pass through array argument
 iterateThroughQuestionsArray(questions);
 
 //append question
-function displayQuestions() {
-	$(".question-div").append("<div>" + questions.question + "</div>");
+//SHOWING UNDEFINED
+function displayQuestions(questions) {
+	$(".question-div").append("<div class='question-styling'>" + questions.question + "</div>");
 };
 
 //append choices
-function displayChoices() {
-	$(".question-div").append("<div>" + questions.choices + "</div>");
+function displayChoices(choices) {
+	for(var y = 0; y < choices.length; y++)
+	$(".question-div").append("<input type='radio' name='choice' class='options'>" + choices[y] + "</input> <br />");
 };
 
-
-//function to render a single question to print to html
-
-//Functions to change questions and question choices when button next and previous buttons are clicked. 
 
 //dynamically populate the questions and radio buttons
 //dynamically populate submit button
 
 //on submit, dynamically populate win/loss/unanswered questions
+
+
+
+
+
 
 });
 
