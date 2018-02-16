@@ -1,0 +1,16 @@
+#mainName {
+	font-family: 'Anton', sans-serif;
+}
+
+.jumbotron {
+	background-color: #BDF2FF;
+}
+
+.container {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+input {
+	margin-right: 10px;
+}

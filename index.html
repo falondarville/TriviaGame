@@ -1,9 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Trivia | The Room Movie</title>
+	<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
+<!-- jumbotron section -->
+
+<div class="jumbotron text-center">
+  <h1 class="display-4" id="mainName">The Room Movie Trivia</h1>
+  <p class="lead">How much do you know about the best "worst" movie made?</p>
+  <img src="assets/images/critic.png" alt="bad ratings for The Room film">
+  </p>
+</div>
+
+<!-- timer section -->
+<div class="container text-center">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+			  <div class="card-body">
+				<p>Time Remaining:</p>
+				<div id="timeRemaining">0</div>
+				<p> Seconds</p>
+			  </div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+			  <div class="card-body">
+				<p>Let's get started!</p>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- questions section -->
+
+<div class="container question-div">
+	<!-- dynamically populate the questions -->
+
+	<!-- dynamically populate the results upon submitting the form -->
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="assets/javascript/app.js"></script>
 </body>
 </html>
