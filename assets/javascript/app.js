@@ -99,11 +99,11 @@ $("#submitButton").on("click", function(){
 });
 
 //function to calculate results
-function calculateResults() {
-	$("input[type='radio']:checked").val();
-}
+// function calculateResults() {
+// 	$("input[type='radio']:checked").val();
+// }
 
-console.log(calculateResults());
+// console.log(calculateResults());
 
 //function to print results
 
@@ -112,10 +112,22 @@ console.log(calculateResults());
 // }
 
 //timer countdown from 120 seconds
+var secondsRemaining = 120;
 
+var timer = setInterval(timeQuiz, 1000)
 
+function timeQuiz() {
+	displayTime();
+	if (secondsRemaining !== 0) {
+		secondsRemaining -= 1;
+	//call function that displays quiz results
+	
+	}
+}
 
-
+function displayTime() {
+	$("#timeRemaining").html(secondsRemaining);
+}
 
 
 });
