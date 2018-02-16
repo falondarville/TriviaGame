@@ -56,6 +56,9 @@ var questions = [{
 		answerIndex: 0
 	}];
 
+//call iteration function and pass through array argument
+iterateThroughQuestionsArray(questions);
+
 //Function to iterate through questions array
 function iterateThroughQuestionsArray(questions) {
 
@@ -70,9 +73,6 @@ function iterateThroughQuestionsArray(questions) {
 	//call display button function
 	displayButton();
 };
-
-//call iteration function and pass through array argument
-iterateThroughQuestionsArray(questions);
 
 function displayButton(){
 	$("#submitButton").append("<input type='submit' value='submit' id='buttonStyle'>");
@@ -99,6 +99,11 @@ $("#submitButton").on("click", function(){
 });
 
 //function to calculate results
+function calculateResults() {
+	$("input[type='radio']:checked").val();
+}
+
+console.log(calculateResults());
 
 //function to print results
 
