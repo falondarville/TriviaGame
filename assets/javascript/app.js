@@ -61,19 +61,22 @@ function iterateThroughQuestionsArray(questions) {
 
 	for(var x = 0; x < questions.length; x++){
 
-		//call append questions function
+		//call display questions function
 		displayQuestions(questions[x]);
-		//call append choices function
+		//call display choices function
 		displayChoices(questions[x].choices);
 
 	};
-
+	//call display button function
+	displayButton();
 };
 
 //call iteration function and pass through array argument
 iterateThroughQuestionsArray(questions);
-$("#submitButton").append("<input type='submit' value='submit' id='buttonStyle'>");
 
+function displayButton(){
+	$("#submitButton").append("<input type='submit' value='submit' id='buttonStyle'>");
+};
 
 //append question
 //SHOWING UNDEFINED
@@ -86,8 +89,6 @@ function displayChoices(choices) {
 	for(var y = 0; y < choices.length; y++)
 	$(".question-div").append("<input type='radio' name='choice' class='options'>" + choices[y] + "</input> <br />");
 };
-
-$("#submitButton").append("<input type='submit>Submit</input>");
 
 //onclick submit button that calls two functions: calculated results and print results
 $("#submitButton").on("click", function(){
