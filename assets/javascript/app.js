@@ -83,35 +83,31 @@ function displayQuestions(questions) {
 	$(".question-div").append("<div class='question-styling'>" + questions.question + "</div>");
 };
 
+var choicesArray = [];
+var answersArray = [0, 1, 0, 1, 1, 2, 2, 0, 1, 0];
+
 //append choices
 function displayChoices(choices) {
 	for(var y = 0; y < choices.length; y++)
-	$(".question-div").append("<input type='radio' name='choice' class='options' value='" + choices[y] + "'>" + choices[y] + "</input> <br />");
+	$(".question-div").append(`<input type='radio' name='choice' class='options' value=${y}>${choices[y]}</input> <br />`);
 };
 
 //onclick submit button that calls two functions: calculated results and print results
+
+$('.options').click(function() {
+    console.log($(this).val());
+    choicesArray.push($(this).val());
+    console.log(choicesArray);
+});
+
+//function to compare choicesArray to answersArray
+
 $("#submitButton").on("click", function(){
 	//submit form 
 	alert("button works!");
 	//call two function
 	// printResults();
 });
-
-//get results
-$("#submitButton").click(function () {
-	var getValue = $("input[name='choice']: checked").val();
-	console.log(getValue);
-});
-
-//function to get results
-// function getResults() {
-// 	$("input[type='radio']").on("change", function() {
-// 		var selectedValue = $("input[name='choice']:checked").val();
-// 		if (selectedValue) {
-// 			alert("you selected" + selectedValue);
-// 		}
-// 	});
-// };
 
 //function to print results
 
