@@ -79,7 +79,6 @@ function displayButton(){
 };
 
 //append question
-//SHOWING UNDEFINED
 function displayQuestions(questions) {
 	$(".question-div").append("<div class='question-styling'>" + questions.question + "</div>");
 };
@@ -87,7 +86,7 @@ function displayQuestions(questions) {
 //append choices
 function displayChoices(choices) {
 	for(var y = 0; y < choices.length; y++)
-	$(".question-div").append("<input type='radio' name='choice' class='options'>" + choices[y] + "</input> <br />");
+	$(".question-div").append("<input type='radio' name='choice' class='options' value='" + choices[y] + "'>" + choices[y] + "</input> <br />");
 };
 
 //onclick submit button that calls two functions: calculated results and print results
@@ -98,12 +97,21 @@ $("#submitButton").on("click", function(){
 	// printResults();
 });
 
-//function to calculate results
-// function calculateResults() {
-// 	$("input[type='radio']:checked").val();
-// }
+//get results
+$("#submitButton").click(function () {
+	var getValue = $("input[name='choice']: checked").val();
+	console.log(getValue);
+});
 
-// console.log(calculateResults());
+//function to get results
+// function getResults() {
+// 	$("input[type='radio']").on("change", function() {
+// 		var selectedValue = $("input[name='choice']:checked").val();
+// 		if (selectedValue) {
+// 			alert("you selected" + selectedValue);
+// 		}
+// 	});
+// };
 
 //function to print results
 
@@ -123,15 +131,14 @@ function timeQuiz() {
 	//call function that displays quiz results
 	
 	}
-}
+};
 
 function displayTime() {
 	$("#timeRemaining").html(secondsRemaining);
-}
+};
 
 
 });
-
 
 
 
