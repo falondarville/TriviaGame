@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
 // starting variables
 var correctAnswers = 0;
 var wrongAnswers = 0;
@@ -87,13 +88,14 @@ var choicesArray = [];
 var answersArray = [0, 1, 0, 1, 1, 2, 2, 0, 1, 0];
 
 //append choices
+//ISSUE: user can only choose one answer from the whole quiz since the class "choice" is the same for each value
 function displayChoices(choices) {
 	for(var y = 0; y < choices.length; y++)
 	$(".question-div").append(`<input type='radio' name='choice' class='options' value=${y}>${choices[y]}</input> <br />`);
 };
 
-//onclick submit button that calls two functions: calculated results and print results
-
+//this function pushes the index of the value chosen to the choicesArray
+//ISSUE: pushing to array means that I will be able to compare arrays only if the user selects the questions in that specific order
 $('.options').click(function() {
     console.log($(this).val());
     choicesArray.push($(this).val());
@@ -101,7 +103,7 @@ $('.options').click(function() {
 });
 
 //function to compare choicesArray to answersArray
-
+//function to determine if all values have been inputted, and if not, output the amount of unanswered questions the user left
 $("#submitButton").on("click", function(){
 	//submit form 
 	alert("button works!");
@@ -135,8 +137,3 @@ function displayTime() {
 
 
 });
-
-
-
-
-
