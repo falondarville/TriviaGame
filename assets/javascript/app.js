@@ -120,18 +120,17 @@ function displayChoices(choices, questionIndex) {
 
 console.log(questions.identifier);
 
+function setSelected(answer) {
 
+	//set two variables, one for answer.name and answer.value
+	//use the find function to get the object
+	//assign the value to the question
+	console.log(answer.target.name);
+	console.log(answer.target.value);
+};
 
 //upon clicking the options for each question, run the compareAnswers function and 
-$('.options').click(function() {
-	//call function that checks answer index
-	//update "selected" value for question clicked. Take the value, set to "selected" instead of null
-	// questions[questionIndex].selected = this.value
-
-	console.log(questions.id);
-	// compareAnswers(this.value, this.id);
-
-});
+$('.options').click(setSelected);
 
 // function compareAnswers(choice, answer){
 // 	console.log(answer);
