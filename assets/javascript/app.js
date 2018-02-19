@@ -9,52 +9,62 @@ var incompleteAnswers = 0;
 var questions = [{
 		question: "Who directed, wrote, produced, and starred in The Room?",
 		choices: ["Tommy Wiseau", "Clint Eastwood", "James Franco"],
-		answerIndex: 0
+		answerIndex: 0,
+		identifier: "questionOne"
 	},
 	{
 		question: "What did Lisa do to Johnny?",
 		choices: ["Forgot his birthday", "Cheated on him with his best friend", "Hired an assassin to kill him"],
-		answerIndex: 1
+		answerIndex: 1,
+		identifier: "questionTwo"
 	},
 	{
 		question: "What is Johnny's famous line in the scene where he buys Lisa flowers?",
 		choices: ["Oh hi doggy", "There won't be another day like this", "How could you do this to me"],
-		answerIndex: 0
+		answerIndex: 0,
+		identifier: "questionThree"
 	},
 	{
 		question: "Who jumps into bed with Johnny and Lisa?",
 		choices: ["Mark, Johnny's best friend", "Denny, Johnny's neighbor", "Peter, Johnny's psychologist friend"],
-		answerIndex: 1
+		answerIndex: 1,
+		identifier: "questionFour"
 	},
 	{
 		question: "Who is Chris-R?",
 		choices: ["Johnny's lawyer and friend", "A drug dealer who Denny owes money to", "The DJ at Johnny's birthday party"],
-		answerIndex: 1
+		answerIndex: 1,
+		identifier: "questionFive"
 	},
 	{
 		question: "What is the name of the memoir written by Greg Sestero that describes the making of The Room?",
 		choices: ["Red, Red Room", "The Making of The Room", "The Disaster Artist"],
-		answerIndex: 2
+		answerIndex: 2,
+		identifier: "questionSix"
 	},
 	{
 		question: "Which duo produced and directed the film adaptation of Sestero's making-of memoir?",
 		choices: ["Patton Oswalt and Jon Hamm", "Greg Sestero and Dave Franco", "Seth Rogen and James Franco"],
-		answerIndex: 2
+		answerIndex: 2,
+		identifier: "questionSeven"
 	},
 	{
 		question: "What does Lisa's mother, Claudette, reveal to Lisa suddenly that she never mentions again?",
 		choices: ["She has breast cancer", "She is in love with Johnny", "She adopted Lisa as an infant"],
-		answerIndex: 0
+		answerIndex: 0,
+		identifier: "questionEight"
 	},
 	{
 		question: "What do fans famously bring to limited movie screenings of The Room?",
 		choices: ["Tape recorders", "Spoons", "Roses"],
-		answerIndex: 1
+		answerIndex: 1,
+		identifier: "questionNine"
 	},
 	{
 		question: "What is Johnny's favorite sport?",
 		choices: ["Football", "Soccer", "Hockey"],
-		answerIndex: 0
+		answerIndex: 0,
+		identifier: "questionTen"
 	}];
 
 //call iteration function and pass through array argument
@@ -68,7 +78,7 @@ function iterateThroughQuestionsArray(questions) {
 		//call display questions function
 		displayQuestions(questions[x]);
 		//call display choices function
-		displayChoices(questions[x].choices);
+		displayChoices(questions[x].choices, x);
 
 	};
 	//call display button function
@@ -88,11 +98,13 @@ var choicesArray = [];
 var answersArray = [0, 1, 0, 1, 1, 2, 2, 0, 1, 0];
 
 //append choices
-//ISSUE: user can only choose one answer from the whole quiz since the class "choice" is the same for each value
-function displayChoices(choices) {
-	for(var y = 0; y < choices.length; y++)
-	$(".question-div").append(`<input type='radio' name='choice' class='options' value=${y}>${choices[y]}</input> <br />`);
+function displayChoices(choices, questionIndex) {
+	for(var y = 0; y < choices.length; y++) {
+	$(".question-div").append(`<input type='radio' name=${questions[questionIndex].identifier} class='options' value=${y}>${choices[y]}</input> <br />`);
+	}
 };
+
+console.log(questions.identifier);
 
 //this function pushes the index of the value chosen to the choicesArray
 //ISSUE: pushing to array means that I will be able to compare arrays only if the user selects the questions in that specific order
