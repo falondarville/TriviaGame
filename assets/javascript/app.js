@@ -5,7 +5,6 @@ var correctAnswers = 0;
 var wrongAnswers = 0;
 var incompleteAnswers = 0;
 
-//questions that will populate based off of iteration
 var questions = [{
 		question: "Who directed, wrote, produced, and starred in The Room?",
 		choices: ["Tommy Wiseau", "Clint Eastwood", "James Franco"],
@@ -100,7 +99,6 @@ function displayQuestions(questions) {
 };
 
 //append choices
-//each question's choices have a different name attribute so that users can only choose one response to each question
 function displayChoices(choices, questionIndex) {
 
 	for(var y = 0; y < choices.length; y++) {
@@ -110,12 +108,14 @@ function displayChoices(choices, questionIndex) {
 	}
 };
 
+//submit button calls for time to stop, calculate function, and print results function
 $("#submitButton").on("click", function(){
-
+	clearInterval(timer);
 	calculateScore();
-	// printResults();
+	printResults();
 });
 
+//calculate correct and incorrect answers, as well as unselected answers
 function calculateScore() {
 
 	$.each(questions, function(key, value) {
@@ -126,19 +126,20 @@ function calculateScore() {
 			correctAnswers++;
 		} else if (valueOf == undefined) {
 			incompleteAnswers++;
-		} else if (valueOf != value.answerIndex) {
+		} else {
 			wrongAnswers++;
-		}
+		};
 
 	});
-	alert ("correct = " + correctAnswers + "wrong = " + wrongAnswers + "incompleteAnswers =" + incompleteAnswers);
 };
 
-// function printResults() {
-// 	$(".question-div").append("<p>Correct Answers : " + correctAnswers "</p> <br /> <p>Incorrect Answers : " + wrongAnswers + "</p> <br /> <p>Number of Questions Left Unanswered : " + incompleteAnswers + "</p>")
-// }
+//print results of quiz
+function printResults() {
+	$(".question-div").html("<br><br><h4><b>Correct Answers : </b>" + correctAnswers + "</h4> <br /> <h4><b>Incorrect Answers : </b>" + wrongAnswers + "</h4> <br /> <h4><b>Number of Questions Left Unanswered : </b>" + incompleteAnswers + "</h4><br><br>")
+	$("#submitButton").empty();
+};
 
-//timer countdown from 120 seconds
+//timer countdown
 var secondsRemaining = 120;
 
 var timer = setInterval(timeQuiz, 1000)
@@ -147,17 +148,21 @@ function timeQuiz() {
 	displayTime();
 	if (secondsRemaining !== 0) {
 		secondsRemaining -= 1;
-
 	}
-	// if (secondsRemaining == 0) {
-	// //call function that displays quiz results
-	// // calculateScore();
-	// // printResults();
-	// }
+	if (secondsRemaining == 0) {
+	clearInterval(timer);
+	calculateScore();
+	printResults();
+	}
 };
 
 function displayTime() {
 	$("#timeRemaining").html(secondsRemaining);
 };
+
+function resetGame() {
+
+
+}
 
 });
